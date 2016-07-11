@@ -1,0 +1,33 @@
+<div *ngIf="pokemon" class="modal-content">
+  <div class="modal-header">
+    <h2 class="modal-title">#{{pokemon.id}} {{pokemon.name}} Details</h2>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-xs-12">
+        <span *ngFor="let t of pokemon.types" class="list-group-item poketype {{t.type.name}}">{{t.type.name}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <img src="{{pokemon.largeSprite}}"/>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <h4>Height: {{pokemon.height}}</h4>
+        <h4>Weight: {{pokemon.weight}}</h4>
+        <h4>Stats</h4>
+        <ul class="list-group">
+          <li *ngFor="let s of pokemon.stats" class="list-group-item">{{s.stat.name}}: {{s.base_stat}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Moves</h4>
+        <ul class="list-group">
+          <li *ngFor="let m of pokemon.moves" class="list-group-item">{{m.move.name}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div><!-- /.modal-content -->
